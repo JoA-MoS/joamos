@@ -11,14 +11,19 @@
     "nx.json": "*"
   },
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "npmScope": "joamos",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
       }
     }
   },
@@ -28,7 +33,9 @@
     },
     "game-timer-ui-e2e": {
       "tags": [],
-      "implicitDependencies": ["game-timer-ui-vue"]
+      "implicitDependencies": [
+        "game-timer-ui-vue"
+      ]
     },
     "game-timer-api-nestjs": {
       "tags": []
