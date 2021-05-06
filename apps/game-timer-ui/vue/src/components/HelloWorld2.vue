@@ -75,14 +75,19 @@
         >
       </li>
     </ul>
+    <timer-item></timer-item>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import TimerItem from './TimerItem.vue';
 
 export default defineComponent({
   name: 'HelloWorld2',
+  components: {
+    TimerItem,
+  },
   props: {
     msg: String,
   },

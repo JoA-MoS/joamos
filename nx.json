@@ -1,25 +1,37 @@
 {
-  "npmScope": "joamos",
-  "affected": { "defaultBase": "master" },
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "npmScope": "joamos",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
     }
   },
   "projects": {
-    "vue-game-timer": { "tags": [] },
-    "vue-game-timer-e2e": {
+    "game-timer-ui-vue": {
+      "tags": []
+    },
+    "game-timer-ui-e2e": {
       "tags": [],
-      "implicitDependencies": ["vue-game-timer"]
+      "implicitDependencies": ["game-timer-ui-vue"]
+    },
+    "game-timer-api-nestjs": {
+      "tags": []
     }
   }
 }

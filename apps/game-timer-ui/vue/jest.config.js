@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'vue-game-timer',
+  displayName: 'game-timer-ui-vue',
   preset: '../../../jest.preset.js',
   transform: {
     '^.+\\.vue$': 'vue-jest',
@@ -8,7 +8,7 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'vue', 'js', 'json'],
-  coverageDirectory: '../../../coverage/apps/vue/game-timer',
+  coverageDirectory: '../../../coverage/apps/game-timer-ui/vue',
   snapshotSerializers: ['jest-serializer-vue'],
   globals: {
     'ts-jest': {

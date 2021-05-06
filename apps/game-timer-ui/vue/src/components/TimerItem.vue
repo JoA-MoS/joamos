@@ -9,13 +9,13 @@
 import { defineComponent } from 'vue';
 
 export interface Timer {
-  name: string,
-  counter: number
+  name: string;
+  counter: number;
 }
 
 export default defineComponent({
   name: 'TimerItem',
-  data():Timer {
+  data(): Timer {
     return {
       name: 'test',
       counter: 0,

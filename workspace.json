@@ -1,18 +1,22 @@
 {
   "version": 2,
+  "cli": {
+    "defaultCollection": "@nrwl/nest"
+  },
+  "defaultProject": "game-timer-api-nestjs",
   "projects": {
-    "vue-game-timer": {
+    "game-timer-ui-vue": {
       "projectType": "application",
-      "root": "apps/vue/game-timer",
-      "sourceRoot": "apps/vue/game-timer/src",
+      "root": "apps/game-timer-ui/vue",
+      "sourceRoot": "apps/game-timer-ui/vue/src",
       "targets": {
         "build": {
           "executor": "@nx-plus/vue:browser",
           "options": {
-            "dest": "dist/apps/vue/game-timer",
-            "index": "apps/vue/game-timer/public/index.html",
-            "main": "apps/vue/game-timer/src/main.ts",
-            "tsConfig": "apps/vue/game-timer/tsconfig.app.json"
+            "dest": "dist/apps/game-timer-ui/vue",
+            "index": "apps/game-timer-ui/vue/public/index.html",
+            "main": "apps/game-timer-ui/vue/src/main.ts",
+            "tsConfig": "apps/game-timer-ui/vue/tsconfig.app.json"
           },
           "configurations": {
             "production": {
@@ -29,64 +33,105 @@
         "serve": {
           "executor": "@nx-plus/vue:dev-server",
           "options": {
-            "browserTarget": "vue-game-timer:build"
+            "browserTarget": "game-timer-ui-vue:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "vue-game-timer:build:production"
+              "browserTarget": "game-timer-ui-vue:build:production"
             }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/vue/game-timer/**/*.{ts,tsx,vue}"
-            ]
+            "lintFilePatterns": ["apps/game-timer-ui/vue/**/*.{ts,tsx,vue}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/vue/game-timer"
-          ],
+          "outputs": ["coverage/apps/game-timer-ui/vue"],
           "options": {
-            "jestConfig": "apps/vue/game-timer/jest.config.js",
+            "jestConfig": "apps/game-timer-ui/vue/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "vue-game-timer-e2e": {
-      "root": "apps/vue/game-timer-e2e",
-      "sourceRoot": "apps/vue/game-timer-e2e/src",
+    "game-timer-ui-e2e": {
+      "root": "apps/game-timer-ui-e2e",
+      "sourceRoot": "apps/game-timer-ui-e2e/src",
       "projectType": "application",
       "targets": {
         "e2e": {
           "executor": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/vue/game-timer-e2e/cypress.json",
-            "tsConfig": "apps/vue/game-timer-e2e/tsconfig.e2e.json",
-            "devServerTarget": "vue-game-timer:serve"
+            "cypressConfig": "apps/game-timer-ui-e2e/cypress.json",
+            "tsConfig": "apps/game-timer-ui-e2e/tsconfig.e2e.json",
+            "devServerTarget": "game-timer-ui-vue:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "vue-game-timer:serve:production"
+              "devServerTarget": "game-timer-ui-vue:serve:production"
             }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/vue/game-timer-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/game-timer-ui-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "game-timer-api-nestjs": {
+      "root": "apps/game-timer-api/nestjs",
+      "sourceRoot": "apps/game-timer-api/nestjs/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/game-timer-api/nestjs",
+            "main": "apps/game-timer-api/nestjs/src/main.ts",
+            "tsConfig": "apps/game-timer-api/nestjs/tsconfig.app.json",
+            "assets": ["apps/game-timer-api/nestjs/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/game-timer-api/nestjs/src/environments/environment.ts",
+                  "with": "apps/game-timer-api/nestjs/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "game-timer-api-nestjs:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/game-timer-api/nestjs/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/game-timer-api/nestjs"],
+          "options": {
+            "jestConfig": "apps/game-timer-api/nestjs/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/workspace"
   }
 }
