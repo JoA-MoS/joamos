@@ -18,26 +18,34 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
   "projects": {
-    "game-timer-ui-vue": {
+    "game-timer-api-express": {
+      "tags": []
+    },
+    "game-timer-api-nestjs": {
+      "tags": []
+    },
+    "game-timer-api-node": {
+      "tags": []
+    },
+    "game-timer-ui-angular": {
       "tags": []
     },
     "game-timer-ui-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "game-timer-ui-vue"
-      ]
+      "implicitDependencies": ["game-timer-ui-vue"]
     },
-    "game-timer-api-nestjs": {
+    "game-timer-ui-react": {
+      "tags": []
+    },
+    "game-timer-ui-vue": {
+      "tags": []
+    },
+    "game-timer-ui-web": {
       "tags": []
     }
   }

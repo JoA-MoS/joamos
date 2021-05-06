@@ -2,5 +2,13 @@
   "/api": {
     "target": "http://localhost:3333",
     "secure": false
+  },
+  "/game-timer-api-node-api": {
+    "target": "http://localhost:3333",
+    "secure": false
+  },
+  "/game-timer-api-express-api": {
+    "target": "http://localhost:3333",
+    "secure": false
   }
 }
